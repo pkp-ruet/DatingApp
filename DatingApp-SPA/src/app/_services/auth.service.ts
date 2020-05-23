@@ -32,7 +32,11 @@ register(model: any){
 
 loggedIn(){
   const token = localStorage.getItem('token');
+  if(token){
+  console.log(this.jwtHelper.isTokenExpired(token));
   return !this.jwtHelper.isTokenExpired(token);
+  }
+  return false;
 }
 
 }
